@@ -1,0 +1,11 @@
+.jumbotron{
+  height: 300;
+  clear: both;
+  padding-top: 120;
+  text-align: center;
+  background-color: darkgrey;
+  color: blue;
+  border: 5px groove black;
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+}
