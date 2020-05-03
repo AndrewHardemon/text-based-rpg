@@ -24,7 +24,7 @@ export function Jumbotron2({ children }) {
 export function Jumbotron3({ children }) {
   return (
       <div
-      className="jumbotron2"
+      className="jumbotron3"
     >
       {children}
     </div>
