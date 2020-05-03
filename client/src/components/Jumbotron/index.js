@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Jumbotron({ children }) {
+export function Jumbotron({ children }) {
   return (
     <div
       className="jumbotron"
@@ -11,4 +11,24 @@ function Jumbotron({ children }) {
   );
 }
 
-export default Jumbotron;
+export function Jumbotron2({ children }) {
+  return (
+      <div
+      className="jumbotron2"
+    >
+      {children}
+    </div>
+  );
+}
+
+export function Jumbotron3({ children }) {
+  return (
+      <div
+      className="jumbotron2"
+    >
+      {children}
+    </div>
+  );
+}
+
+// export default Jumbotron;

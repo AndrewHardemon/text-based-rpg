@@ -1,11 +1,41 @@
 .jumbotron{
-  height: 300;
+  height: 220%;
+  width:auto;
   clear: both;
   padding-top: 120;
   text-align: center;
-  background-color: darkgrey;
-  color: blue;
-  border: 5px groove black;
+  background-color: #222222;
+  color: #222222;
+  border: 5px solid black;
   font-family: "Times New Roman", Times, serif;
-  font-style: oblique;
+  word-wrap: normal;
+}
+
+.jumbotron2{
+  height: 106%;
+  width: inherit;
+  clear: both;
+  margin-left: -7.5%;
+  margin-right: -7.5%;
+  margin-bottom: -6%;
+  text-align: center;
+  background-color: #9d9d9d;
+  color: #222222;
+  border: 5px ridge black;
+  font-family: "Times New Roman", Times, serif;
+  word-wrap: break-word;
+}
+
+.jumbotron3{
+  height: 80%;
+  width: 80%;
+  clear: both;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  background-color: #222222;
+  color: #9d9d9d;
+  border: 5px ridge black;
+  font-family: "Times New Roman", Times, serif;
 }
