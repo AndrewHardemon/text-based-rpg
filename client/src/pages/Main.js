@@ -13,7 +13,6 @@ class Main extends Component{
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <h1>Youtube</h1>
           </Col>
         </Row>
 

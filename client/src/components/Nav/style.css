@@ -1,3 +1,63 @@
-#nav{
-  color: black;
+.navbar{
+  outline-style: groove;
+  outline-width: 5px;
+}
+
+
+/* Code for which type of Navbar will be used based on resolution */
+.desktop {
+  visibility: visible;
+  display: block;
+  position: static;
+}
+.mobile {
+  visibility: hidden;
+  position: absolute;
+  display: none;
+}
+.tablet {
+  visibility: hidden;
+  position: absolute;
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .desktop {
+    visibility: hidden;
+    position: absolute;
+    display: none;
+  }
+  .tablet {
+    visibility: visible;
+    display: block;
+    position: static;
+  }
+  .mobile {
+    visibility: hidden;
+    position: absolute;
+    display: none;
+  } 
+}
+
+
+@media (max-width: 767px) {
+  .desktop {
+    visibility: hidden;
+    position:absolute;
+    display: none;
+  }
+  .tablet {
+    visibility: hidden;
+    position:absolute;
+    display: none;
+  }
+  .mobile {
+    visibility: visible;
+    display: block;
+    position: relative;
+  }
+  .navbar-brand{
+    display: block;
+    position: relative;
+  }
 }
