@@ -1,0 +1,10 @@
+.imageList{
+  height: 300;
+  clear: both;
+  padding-top: 120;
+  text-align: center;
+  align-content: inherit;
+  padding-right: auto;
+  padding-left: auto;
+  margin-left: -100px;
+}
