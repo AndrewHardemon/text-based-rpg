@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import {Jumbotron, Jumbotron2} from "../components/Jumbotron";
-import {TextArea, Input} from "../components/Form";
-import Images from "../components/Images";
-import ChoiceBtn from "../components/ChoiceBtn";
+// import {TextArea, Input} from "../components/Form";
+// import Images from "../components/Images";
+// import ChoiceBtn from "../components/Buttons";
 import '../App.css';
 // import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import Shovel from "../components/Images/shovel.png"
+import Knife from "../components/Images/knife.png"
 
 class Main extends Component{
 
   state = {
     character: "Bob",
     location: "Bob's House",
-    description: "This character is a man called Bob. He is the best man whose name starts with the letter B",
+    description: [
+      {text: "This character is a man called Bob. He is the best man whose name starts with the letter B"}
+    ],
     stats: [
       {name: "Str", hidden:"false", fullName: "Strength", desc: "Carry Weight, Physical Strength, Inimidation, and Melee", start: 10, current: 10},
       {name: "Int", hidden:"false", fullName: "Intelligence", desc: "Problem Solving, Research, Wisdom, and Incredulity", start: 12, current: 12},
@@ -39,12 +42,13 @@ class Main extends Component{
       {text: "You enter your house after a long day of work, but find yourself met with utter destruction and ruination. What was once your house is now a distaster. You are taken aback. Everything you own, all that you've worked for, gone, and for what purpose."}
     ],
     items: [
-      {name: "shovel", image: Shovel, data:0}
+      {name: "shovel", image: Shovel, data:0},
+      {name: "knife", image: Knife, data:1}
     ]
   }
 
   render() {
-    const {character, location, items, choices, story} = this.state;
+    const {character, location, items, choices, story, description} = this.state;
     return(
       <Container fluid>
         <div class="flex-container">
@@ -54,41 +58,48 @@ class Main extends Component{
               <Jumbotron>
                 <div className="characterInfo">
                   <h2 style={{color: "white"}}>{character}</h2>
+                  <p>{description[0].text}</p>
                 </div>
               </Jumbotron>
               
             </div>
-            <Col size="md-6 sm-12">
+            <div class="col-md-6 col-sm-12 storyCol">
               <Jumbotron>
                 <Jumbotron2>
                   <div className="mainStory">
                     <h2 className="area">{location}</h2>
-                    <p className="storyText">{story[0].text}</p>
+                    <div className="jumbotron" style={{backgroundColor:"white", height:"auto"}}>
+                      <p className="storyText text-center" id="storyText">{story[0].text}</p>
+                    </div>
                     {choices.map(choice => (
                       <button className="choiceButton">{choice.text}</button>
-                      // <ChoiceBtn value={choice.text}>{choice.text}</ChoiceBtn>
                     ))}
                     <br></br>
-                    <Input></Input>
+                    <div className="input-group" id="actionBar">                      
+                      <span className="input-group-btn">
+                        <button className="btn btn-info" id="actionButton">Enter</button>
+                      </span>
+                      <input className="form-control width100" id="actionInput"/>
+                    </div>
                   </div>
 
                 </Jumbotron2>
                 
               </Jumbotron>
-            </Col>
-            <Col size="md-3 sm-12">
+            </div>
+            <div class="col-md-3 inventoryCol">
               <Jumbotron>
                 <div className="inventory">
                   <h2 className="itemBag" style={{color: "white"}}>Inventory</h2>
-                    {/* Map through Items and add use, inspect, and throw away buttons */}
-                    <div className="currentItems">
-                    {items.map(item => (
-                      <img style={{width:"150px", height:"150px"}} src={item.image} alt={item.name}></img>
-                    ))}
-                    </div>
+                  {/* Map through Items and add use, inspect, and throw away buttons */}
+                  <div className="currentItems">
+                  {items.map(item => (
+                    <img style={{width:"150px", height:"150px"}} src={item.image} alt={item.name}></img>
+                  ))}
+                  </div>
                 </div>
               </Jumbotron>
-            </Col>
+            </div>
           </Row>
         </div>
 

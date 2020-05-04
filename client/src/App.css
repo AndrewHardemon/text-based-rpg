@@ -15,6 +15,92 @@
   border-left: 1px solid #333333;
 }
 
+.currentItems{
+  display: inline-block;
+}
+
+
+/* Input */
+#actionButton{
+  background-color: #333333;
+  border-top: 1px solid #222222;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  border-left: 1px solid #222222;
+}
+#actionBar{
+  margin-top: 10px;
+  /* padding-left: 10rem;
+  padding-right: 10rem; */
+}
+#actionInput{
+  border-top: 1px solid #222222;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+  border-left: 1px solid #222222;
+}
+
+
+/* Columns */
+.characterCol{
+  order: 1;
+}
+.storyCol{
+  order: 2;
+}
+.inventoryCol{
+  order: 3;
+}
+
+
+/* @media (max-width: 967px) {
+  .characterCol{
+    order: 3;
+  }
+  .storyCol{
+    order: 1;
+  }
+  .inventoryCol{
+    order: 2;
+  }
+} */
+
+
+@media (max-width: 767px) {
+  /* Columns */
+  .characterCol{
+    order: 3;
+  }
+  .storyCol{
+    order: 1;
+  }
+  .inventoryCol{
+    order: 2;
+  }
+}
+
+
+/* @media (max-width: 767px) {
+  .desktop {
+    visibility: hidden;
+    position:absolute;
+    display: none;
+  }
+  .tablet {
+    visibility: hidden;
+    position:absolute;
+    display: none;
+  }
+  .mobile {
+    visibility: visible;
+    display: block;
+    position: relative;
+  }
+  .navbar-brand{
+    display: block;
+    position: relative;
+  }
+} */
 
 /* .App {
   text-align: center;
