@@ -52,6 +52,17 @@
   order: 3;
 }
 
+.allImages{
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em
+}
+
+.jumbotron{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 
 /* @media (max-width: 967px) {
   .characterCol{
@@ -63,19 +74,36 @@
   .inventoryCol{
     order: 2;
   }
+
 } */
 
 
-@media (max-width: 767px) {
+@media (max-width: 1028px) {
+  .mainStory{
+    margin-top: -15px;
+  }
+  .jumbotron{
+    height: 100%;
+  }
+  .jumbotron2{
+    height: 105%;
+  }
+
   /* Columns */
   .characterCol{
     order: 3;
+    column-width: 100%;
   }
   .storyCol{
+    margin-top: 30px;
     order: 1;
   }
   .inventoryCol{
     order: 2;
+  }
+  .jumbotron{
+    padding-right: 60px;
+    padding-left: 60px;
   }
 }
 

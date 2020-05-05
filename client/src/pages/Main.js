@@ -94,7 +94,7 @@ class Main extends Component{
                   {/* Map through Items and add use, inspect, and throw away buttons */}
                   <div className="currentItems">
                   {items.map(item => (
-                    <img style={{width:"150px", height:"150px"}} src={item.image} alt={item.name}></img>
+                    <img className="allImages" src={item.image} alt={item.name}></img>
                   ))}
                   </div>
                 </div>
