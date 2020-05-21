@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Jumbotron, Jumbotron2} from "../components/Jumbotron";
+import {Jumbotron, Jumbotron2, Jumbotron3} from "../components/Jumbotron";
 // import {TextArea, Input} from "../components/Form";
 // import Images from "../components/Images";
 // import ChoiceBtn from "../components/Buttons";
@@ -47,6 +47,17 @@ class Main extends Component{
     ]
   }
 
+  //Functionality
+  
+  componentDidMount(){
+    // Add API call for getting save
+  }
+
+
+
+
+
+
   render() {
     const {character, location, items, choices, story, description} = this.state;
     return(
@@ -58,7 +69,9 @@ class Main extends Component{
               <Jumbotron>
                 <div className="characterInfo">
                   <h2 style={{color: "white"}}>{character}</h2>
-                  <p>{description[0].text}</p>
+                  <Jumbotron3>
+                    <p style={{color: "white"}}>{description[0].text}</p>
+                  </Jumbotron3>
                 </div>
               </Jumbotron>
               

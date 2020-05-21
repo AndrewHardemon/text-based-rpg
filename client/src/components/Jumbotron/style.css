@@ -27,17 +27,18 @@
 }
 
 .jumbotron3{
-  height: 80%;
-  width: 80%;
+  height: 106%;
+  width: inherit;
   clear: both;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
+  margin-left: -7.5%;
+  margin-right: -7.5%;
+  margin-bottom: -6%;
   text-align: center;
-  background-color: #222222;
-  color: #9d9d9d;
-  border: 5px ridge black;
+  background-color: #333333;
+  color: #222222;
+  border: 5px ridge #111111;
   font-family: "Times New Roman", Times, serif;
+  word-wrap: break-word;
 }
 /* div.jumbotron p{
   font-size: 100px;
