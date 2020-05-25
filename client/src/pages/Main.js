@@ -14,6 +14,7 @@ class Main extends Component{
   state = {
     character: "Bob",
     location: "Bob's House",
+    textInput: "",
     description: [
       {text: "This character is a man called Bob. He is the best man whose name starts with the letter B"}
     ],
@@ -58,6 +59,12 @@ class Main extends Component{
   
   }
 
+  handleInputChange = event => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+  }
 
 
 
@@ -95,7 +102,7 @@ class Main extends Component{
                       <span className="input-group-btn">
                         <button className="btn btn-info" id="actionButton">Enter</button>
                       </span>
-                      <input className="form-control width100" id="actionInput"/>
+                      <input className="form-control width100" name="textInput" value={this.state.textInput} onChange={this.handleInputChange} id="actionInput"/>
                     </div>
                   </div>
 
