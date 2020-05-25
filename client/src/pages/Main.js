@@ -5,7 +5,7 @@ import {Jumbotron, Jumbotron2, Jumbotron3} from "../components/Jumbotron";
 // import ChoiceBtn from "../components/Buttons";
 import '../App.css';
 // import API from "../utils/API";
-import { Col, Row, Container } from "../components/Grid";
+import { Row, Container } from "../components/Grid";
 import Shovel from "../components/Images/shovel.png"
 import Knife from "../components/Images/knife.png"
 
@@ -33,10 +33,10 @@ class Main extends Component{
       {Str: 10, Int: 12, Def: 9, Chr:  11, Dex: 8, Agl: 13, Luck: 2, Sanity: 20}
     ],
     choices:[
-      {text: "Cry"},
-      {text: "Shoot wildly"},
-      {text: "Look for supplies"},
-      {text: "Try and figure out who did this"}
+      {num: 0, text: "Cry"},
+      {num: 1, text: "Shoot wildly"},
+      {num: 2, text: "Look for supplies"},
+      {num: 3, text: "Try and figure out who did this"}
     ],
     story: [
       {text: "You enter your house after a long day of work, but find yourself met with utter destruction and ruination. What was once your house is now a distaster. You are taken aback. Everything you own, all that you've worked for, gone, and for what purpose."}
@@ -50,10 +50,13 @@ class Main extends Component{
   //Functionality
   
   componentDidMount(){
-    // Add API call for getting save
+    // Add API call for getting saver
   }
 
-
+  choiceSelect = (event, choice) => {
+    console.log(choice);
+  
+  }
 
 
 
@@ -85,7 +88,7 @@ class Main extends Component{
                       <p className="storyText text-center" id="storyText">{story[0].text}</p>
                     </div>
                     {choices.map(choice => (
-                      <button className="choiceButton">{choice.text}</button>
+                      <button className="choiceButton" onClick={((e) => this.choiceSelect(e, choice.num))}>{choice.text}</button>
                     ))}
                     <br></br>
                     <div className="input-group" id="actionBar">                      
