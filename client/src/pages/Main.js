@@ -29,18 +29,22 @@ class Main extends Component{
       {name: "Lck", hidden:"false", fullName: "Luck", desc: "Chance, Gambling, Random Events, Chance of Critical Failure/Success", start: 14, current: 14},
       {name: "San", hidden:"true", fullName: "Sanity", desc: "How well you can handle the horrors of this world. Not everything lasts forever though", start: 20, current: 20},
       {name: "Mor", hidden:"true", fullName: "Morality", desc: "How perceptive people will see you. You can't hide everything", start: 50, current: 50},
-      {name: "Hum", hidden:"true", fullName: "Humanity", desc: "What is the difference between beast and man? That's up to you", start: 50, current: 50},
+      {name: "Hum", hidden:"true", fullName: "Humanity", desc: "What is the difference between beast and man?", start: 50, current: 50},
       {name: "Lif", hidden: "false", fullName: "Life", desc: "How close you are to leaving this world", start: 100, current: 50},
       {Str: 10, Int: 12, Def: 9, Chr:  11, Dex: 8, Agl: 13, Luck: 2, Sanity: 20}
     ],
     choices:[
       {num: 0, text: "Cry"},
-      {num: 1, text: "Shoot wildly"},
-      {num: 2, text: "Look for supplies"},
-      {num: 3, text: "Try and figure out who did this"}
+      {num: 1, text: "Shoot the wall"},
+      {num: 2, text: "Look through the wreckage"},
+      {num: 3, text: "Leave"}
     ],
     story: [
-      {text: "You enter your house after a long day of work, but find yourself met with utter destruction and ruination. What was once your house is now a distaster. You are taken aback. Everything you own, all that you've worked for, gone, and for what purpose."}
+      {
+        part: 0,
+        text: "You, after a long day of work, come back to find your house completely destroyed. You are shocked by what you see and run quickly into the house to see that there is nothing left.",
+        noun: "house"
+      }
     ],
     items: [
       {name: "shovel", image: Shovel, data:0},
@@ -54,9 +58,23 @@ class Main extends Component{
     // Add API call for getting saver
   }
 
-  choiceSelect = (event, choice) => {
+  handleChoiceSelect = (event, choice) => {
     console.log(choice);
   
+  }
+
+  handleCustomWord = () => {
+    // Trim the word and check it
+    let theWord = this.state.textInput.trim()
+    console.log(theWord);
+    // Switch statement
+    switch(theWord) {
+      case "eat":
+        console.log("eat")
+        break;
+      default:
+        console.log("default")
+    }
   }
 
   handleInputChange = event => {
@@ -95,12 +113,12 @@ class Main extends Component{
                       <p className="storyText text-center" id="storyText">{story[0].text}</p>
                     </div>
                     {choices.map(choice => (
-                      <button className="choiceButton" onClick={((e) => this.choiceSelect(e, choice.num))}>{choice.text}</button>
+                      <button className="choiceButton" onClick={((e) => this.handleChoiceSelect(e, choice.num))}>{choice.text}</button>
                     ))}
                     <br></br>
                     <div className="input-group" id="actionBar">                      
                       <span className="input-group-btn">
-                        <button className="btn btn-info" id="actionButton">Enter</button>
+                        <button className="btn btn-info" id="actionButton" onClick={((e) => this.handleCustomWord(e))}>Enter</button>
                       </span>
                       <input className="form-control width100" name="textInput" value={this.state.textInput} onChange={this.handleInputChange} id="actionInput"/>
                     </div>
