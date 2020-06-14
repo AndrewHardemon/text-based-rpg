@@ -15,6 +15,7 @@ class Main extends Component{
     character: "Bob",
     location: "Bob's House",
     textInput: "",
+    part: 0,
     description: [
       {text: "This character is a man called Bob. He is the best man whose name starts with the letter B"}
     ],
@@ -33,17 +34,23 @@ class Main extends Component{
       {name: "Lif", hidden: "false", fullName: "Life", desc: "How close you are to leaving this world", start: 100, current: 50},
       {Str: 10, Int: 12, Def: 9, Chr:  11, Dex: 8, Agl: 13, Luck: 2, Sanity: 20}
     ],
-    choices:[
-      {num: 0, text: "Cry"},
-      {num: 1, text: "Shoot the wall"},
-      {num: 2, text: "Look through the wreckage"},
-      {num: 3, text: "Leave"}
-    ],
+    // choices:[
+    //   {num: 0, text: "Cry"},
+    //   {num: 1, text: "Shoot the wall"},
+    //   {num: 2, text: "Look through the wreckage"},
+    //   {num: 3, text: "Leave"}
+    // ],
     story: [
       {
         part: 0,
         text: "You, after a long day of work, come back to find your house completely destroyed. You are shocked by what you see and run quickly into the house to see that there is nothing left.",
-        noun: "house"
+        noun: {name: "house", type: "building", speed: "immobile", living: false, size: "biggest", consumable: false},
+        choices:[
+          {num: 0, text: "Cry"},
+          {num: 1, text: "Shoot the wall"},
+          {num: 2, text: "Look through the wreckage"},
+          {num: 3, text: "Leave"}
+        ],
       }
     ],
     items: [
@@ -61,6 +68,14 @@ class Main extends Component{
   handleChoiceSelect = (event, choice) => {
     console.log(choice);
   
+  }
+
+  changeStats = () => {
+
+  }
+
+  checkStats = () => {
+
   }
 
   handleCustomWord = () => {
@@ -87,7 +102,7 @@ class Main extends Component{
 
 
   render() {
-    const {character, location, items, choices, story, description} = this.state;
+    const {character, location, items, choices, story, description, part} = this.state;
     return(
       <Container fluid>
         <div class="flex-container">
@@ -112,7 +127,7 @@ class Main extends Component{
                     <div className="jumbotron" style={{backgroundColor:"white", height:"auto"}}>
                       <p className="storyText text-center" id="storyText">{story[0].text}</p>
                     </div>
-                    {choices.map(choice => (
+                    {this.state.story[this.state.part].choices.map(choice => (
                       <button className="choiceButton" onClick={((e) => this.handleChoiceSelect(e, choice.num))}>{choice.text}</button>
                     ))}
                     <br></br>
