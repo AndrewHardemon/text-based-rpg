@@ -46,8 +46,8 @@ class Main extends Component{
         text: "You, after a long day of work, come back to find your house completely destroyed. You are shocked by what you see and run quickly into the house to see that there is nothing left.",
         noun: {name: "house", type: "building", speed: "immobile", living: false, size: "biggest", consumable: false},
         choices:[
-          {num: 0, text: "Cry"},
-          {num: 1, text: "Shoot the wall"},
+          {num: 0, text: "Cry", effect: ((e) => {this.changeStats("San")})},
+          {num: 1, text: "Shoot the wall", effect: ((e) => {this.checkStats("Ammo")})},
           {num: 2, text: "Look through the wreckage"},
           {num: 3, text: "Leave"}
         ],
@@ -67,15 +67,21 @@ class Main extends Component{
 
   handleChoiceSelect = (event, choice) => {
     console.log(choice);
+    //Grab the specific choice and turn it into an object for later use
+    const newObj = this.state.story[this.state.part].choices[choice];
+    // Run the effect for that choice
+    newObj.effect()
   
   }
 
-  changeStats = () => {
-
+  // Alter the stats after the event
+  changeStats = (stat) => {
+    console.log(stat)
   }
 
-  checkStats = () => {
-
+  // Check the stats to see what happens next
+  checkStats = (stat) => {
+    console.log(stat)
   }
 
   handleCustomWord = () => {
@@ -92,6 +98,7 @@ class Main extends Component{
     }
   }
 
+  // Handle input change for typing
   handleInputChange = event => {
     const {name, value} = event.target
     this.setState({
