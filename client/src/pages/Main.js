@@ -34,12 +34,6 @@ class Main extends Component{
       {name: "Lif", hidden: "false", fullName: "Life", desc: "How close you are to leaving this world", start: 100, current: 50},
       {Str: 10, Int: 12, Def: 9, Chr:  11, Dex: 8, Agl: 13, Luck: 2, Sanity: 20}
     ],
-    // choices:[
-    //   {num: 0, text: "Cry"},
-    //   {num: 1, text: "Shoot the wall"},
-    //   {num: 2, text: "Look through the wreckage"},
-    //   {num: 3, text: "Leave"}
-    // ],
     story: [
       {
         part: 0,
@@ -50,6 +44,17 @@ class Main extends Component{
           {num: 1, text: "Shoot the wall", effect: ((e) => {this.checkStats("Ammo")})},
           {num: 2, text: "Look through the wreckage"},
           {num: 3, text: "Leave"}
+        ],
+      },
+      {
+        part: 1,
+        text: "Once outside the house, you find yourself shocked to see how much the world has changed.",
+        noun: {name: "outside", type: "outside", speed: "immobile", living: false, size: "biggest", consumable: false},
+        choices:[
+          {num: 0, text: "Go to the city", effect: ((e) => {this.changeStats("San")})},
+          {num: 1, text: "Go to explore the wild", effect: ((e) => {this.checkStats("Ammo")})},
+          {num: 2, text: "Go in a random direction"},
+          {num: 3, text: "Go back home"}
         ],
       }
     ],
@@ -71,6 +76,12 @@ class Main extends Component{
     const newObj = this.state.story[this.state.part].choices[choice];
     // Run the effect for that choice
     newObj.effect()
+    
+    //Set the state and change to next part
+    let nextPart = this.state.part + 1;
+    this.setState({
+      part: nextPart
+    });
   
   }
 
@@ -132,7 +143,7 @@ class Main extends Component{
                   <div className="mainStory">
                     <h2 className="area">{location}</h2>
                     <div className="jumbotron" style={{backgroundColor:"white", height:"auto"}}>
-                      <p className="storyText text-center" id="storyText">{story[0].text}</p>
+                      <p className="storyText text-center" id="storyText">{story[part].text}</p>
                     </div>
                     {this.state.story[this.state.part].choices.map(choice => (
                       <button className="choiceButton" onClick={((e) => this.handleChoiceSelect(e, choice.num))}>{choice.text}</button>
