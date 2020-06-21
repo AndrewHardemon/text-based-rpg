@@ -16,6 +16,7 @@ class Main extends Component{
     location: "Bob's House",
     textInput: "",
     part: 0,
+    gameover: false,
     description: [
       {text: "This character is a man called Bob. He is the best man whose name starts with the letter B"}
     ],
@@ -39,6 +40,7 @@ class Main extends Component{
         part: 0,
         text: "You, after a long day of work, come back to find your house completely destroyed. You are shocked by what you see and run quickly into the house to see that there is nothing left.",
         noun: {name: "house", type: "building", speed: "immobile", living: false, size: "biggest", consumable: false},
+        location: "Bob's House",
         choices:[
           {num: 0, text: "Cry", effect: ((e) => {this.changeStats("San", (this.state.stats[8].current - 1))})},
           {num: 1, text: "Shoot the wall", effect: ((e) => {this.checkStats("Ammo")})},
@@ -50,6 +52,7 @@ class Main extends Component{
         part: 1,
         text: "Once outside the house, you find yourself shocked to see how much the world has changed.",
         noun: {name: "outside", type: "outside", speed: "immobile", living: false, size: "biggest", consumable: false},
+        location: "Outside Bob's House",
         choices:[
           {num: 0, text: "Go to the city", effect: ((e) => {this.changeStats("San")})},
           {num: 1, text: "Go to explore the wild", effect: ((e) => {this.checkStats("Ammo")})},
@@ -67,7 +70,7 @@ class Main extends Component{
   //Functionality
   
   componentDidMount(){
-    // Add API call for getting saver
+    // Add API call for getting save
   }
 
   handleChoiceSelect = (event, choice) => {
@@ -80,7 +83,9 @@ class Main extends Component{
     //Set the state and change to next part
     let nextPart = this.state.part + 1;
     // Check if you're at the end of the story
-
+    if(nextPart === this.state.end){
+      //run end game
+    }
     this.setState({
       part: nextPart
     });
@@ -101,6 +106,7 @@ class Main extends Component{
     console.log(stat)
   }
 
+  // Checks the word entry box and gives unique results (Work on later)
   handleCustomWord = () => {
     // Trim the word and check it
     let theWord = this.state.textInput.trim()
@@ -154,7 +160,7 @@ class Main extends Component{
               <Jumbotron>
                 <Jumbotron2>
                   <div className="mainStory">
-                    <h2 className="area">{location}</h2>
+                    <h2 className="area">{story[part].location}</h2>
                     <div className="jumbotron" style={{backgroundColor:"white", height:"auto"}}>
                       <p className="storyText text-center" id="storyText">{story[part].text}</p>
                     </div>
