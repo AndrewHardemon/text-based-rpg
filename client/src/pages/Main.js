@@ -16,6 +16,7 @@ class Main extends Component{
     location: "Bob's House",
     textInput: "",
     part: 0,
+    // end: (this.state.story.length-1),
     gameover: false,
     description: [
       {text: "This character is a man called Bob. He is the best man whose name starts with the letter B"}
@@ -51,6 +52,18 @@ class Main extends Component{
       {
         part: 1,
         text: "Once outside the house, you find yourself shocked to see how much the world has changed.",
+        noun: {name: "outside", type: "outside", speed: "immobile", living: false, size: "biggest", consumable: false},
+        location: "Outside Bob's House",
+        choices:[
+          {num: 0, text: "Go to the city", effect: ((e) => {this.changeStats("San")})},
+          {num: 1, text: "Go to explore the wild", effect: ((e) => {this.checkStats("Ammo")})},
+          {num: 2, text: "Go in a random direction"},
+          {num: 3, text: "Go back home"}
+        ],
+      },
+      {
+        part: 2,
+        text: "THE END",
         noun: {name: "outside", type: "outside", speed: "immobile", living: false, size: "biggest", consumable: false},
         location: "Outside Bob's House",
         choices:[
