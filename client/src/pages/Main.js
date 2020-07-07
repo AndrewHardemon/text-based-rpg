@@ -44,7 +44,7 @@ class Main extends Component{
         location: "Bob's House",
         choices:[
           {num: 0, text: "Cry", effect: ((e) => {this.changeStats("San", (this.state.stats[8].current - 1))})},
-          {num: 1, text: "Shoot the wall", effect: ((e) => {this.checkStats("Ammo")})},
+          {num: 1, text: "Shoot the wall", effect: ((e) => {this.checkStats("gun", "ammo", 1)})},
           {num: 2, text: "Look through the wreckage"},
           {num: 3, text: "Leave"}
         ],
@@ -75,8 +75,8 @@ class Main extends Component{
       }
     ],
     items: [
-      {name: "shovel", image: Shovel, amount: 1, data: 0},
-      {name: "knife", image: Knife, amount: 1, data: 1}
+      {name: "shovel", image: Shovel, ammo: false, amount: 1, data: 0},
+      {name: "knife", image: Knife, ammo: false, amount: 1, data: 1},
     ]
   }
 
@@ -119,6 +119,30 @@ class Main extends Component{
     console.log(stat)
   }
 
+  // Check the items to see what happens next
+  checkItems = (playerItem, subItem, amount) => {
+    let theItem = "";
+
+    // Check Inventory
+    this.state.items.forEach(
+      (item, index) => {
+        if(playerItem == item){
+          theItem = item;
+        }
+      }
+    )
+    // If uses ammo or other sub-value
+    if(subItem){
+      // Use the name and subname to call the data
+      let callName = theItem+""+subItem
+    } else {
+      //Get data without the subname
+    }
+
+
+
+  }
+
   // Checks the word entry box and gives unique results (Work on later)
   handleCustomWord = () => {
     // Trim the word and check it
@@ -132,6 +156,8 @@ class Main extends Component{
       default:
         console.log("default")
     }
+
+    //Make it progress to the next part
   }
 
   // Handle input change for typing
