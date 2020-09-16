@@ -22,4 +22,4 @@ This is meant to be a shorter game with high replayability for any user to enjoy
 
 * The goal is to get to the end and defeat the final boss
 
-![Website]("./Text-Based-RPG.PNG")
+![Website](https://github.com/AeroAtlas/text-based-rpg/blob/master/Text-Based-RPG.PNG)
