@@ -4,15 +4,22 @@ Created by - Andrew Hardemon
 Live Site - https://text-based-rpg-atlas.herokuapp.com/
 
 ## Summary
-A web browser RPG game with stats, inventory, and multiple choice. Has the ability to put in your own custom words
-in and get unique responses. The idea is to make a fun little game you can play a few times. Will be including branching paths.
+A web browser RPG game made with React to try and bring the interactivity of a website (and eventually a mobile phone) to an RPG.
+Along with the usual multiple choice input, it has the ability to put in your own custom words in and get unique responses!
+This is meant to be a shorter game with high replayability for any user to enjoy either vanilla or by making their own path.
 
 ## Instructions
 
-* Log-In or Sign-Up to save your game/character (not implemented yet)
+* Log-In or Sign-Up to save your game/character
 
-* Start the game by clicking one of 4 choices or writing in your own response (custom response in progress)
+* Start the game by clicking one of 4 choices or writing in your own response
+
+* Includes Inventory in the Navbar and to the side along with a description of the character
 
 * As the game progresses you will obtain or lose items, stats, money, and ammo
 
-* The goal is to get to the end and defeat the final boss (need to add combat mechanic)
+* You can also input your own text at the bottom of the multiple choice selection to get a unique response
+
+* The goal is to get to the end and defeat the final boss
+
+![Website]("./Text-Based-RPG.PNG")
